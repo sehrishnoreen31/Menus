@@ -9,41 +9,84 @@ body{
     margin: 10px auto;
     padding: 10px;
     max-width: 1200px;
+    background-image: url('bg.jpg');
+    background-attachment: fixed;
 
-    & .nav-bar{
-        padding: 0.2rem;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-
-        & .logo{
-            color: rgb(66, 64, 64);
-            font-size: 2rem;
-            font-weight: 700;
-        }
-        & .nav{
-            & ul{padding: 0.2rem;
+    & .nav{
+            & .nav-bar{
+                & .menu-button{
+                    display: none;
+                }
+                padding: 0.2rem;
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
                 justify-content: center;
                 list-style-type: none;
+                align-items: center;
                 gap: 1.5rem;
-                & li a{
+                & li{
+                    &:first-child{
+                        margin-right: auto;
+                        & a{
+                            font-size: 2rem;
+                            font-weight: 700;
+                        }
+                    }
+                }
+                    & a{
                     text-decoration: none;
-                    color: rgb(49, 44, 44);
+                    color: rgb(255, 255, 255);
                     font-size: 1.2rem;
                     font-weight: 600;
+                    
                     &:hover{
-                        color: rgb(109, 105, 105);
+                        color: rgb(210, 213, 214);
+                    }
+                }
+            }
+            & .side-bar{
+                display: none;
+                padding: 1rem;
+                position: fixed;
+                top: 0;
+                right: 0;
+                width:  10rem;
+                z-index: 999;
+                height: fit-content;
+                background-color: rgba(58, 57, 57, 0.171);
+                backdrop-filter: blur(5px);
+                box-shadow: 10px 5px 3px 3px rgba(0, 0, 0, 0.192);
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: center;
+                list-style-type: none;
+
+                & li{
+                    &:first-child{
+                        margin-right: 0;
+                    }
+                    & a{
+                        text-decoration: none;
+                        color: rgb(255, 255, 255);
+                        font-size: 1.2rem;
+                        font-weight: 600;
+                        &:hover{
+                            color: rgb(210, 213, 214);
+                        }
                     }
                 }
             }
         }
+
     }
-}
 
 /* mobile responsive */
-
+@media (max-width: 500px){
+    .hide-on-mobile{
+        display: none;
+    }
+    .menu-button{
+        display: block !important;
+    }
+}
